@@ -1,6 +1,7 @@
 const Sequelize = require('sequelize');
 const bcrypt = require('bcrypt');
 const jwt = require("jsonwebtoken");
+
 require('dotenv').config();
 //models
 var User = require('../models/userModel');
@@ -27,56 +28,112 @@ module.exports.signup = function(req, res, next) {
   var password = req.body.password;
   var hashedPassword = user.hashedPassword(password);
 
-       User.sync({force: false}).then(() => {
-         User.create({
-           firstname:firstname,
-           lastname : lastname,
-           email : email,
-           password: hashedPassword
-         }).then(savedUser=>{
-           return res.send(savedUser);
-         })
-       })
-       .catch(err=>{
-         return res.send(err);
-       })
+  //check if user already exist
+  user.emailExist(email)
+  .then(function(result){
+    if(result){
+      return res.send("User with Email already exist");
+    }else{
+      //store user in database
+      User.sync({
+          force: false
+        }).then(() => {
+          User.create({
+            firstname: firstname,
+            lastname: lastname,
+            email: email,
+            password: hashedPassword
+          }).then(person => {
+            console.log(email)
+            user.generateToken(req, res, next, person);
+            res.send('registered');
+            //redirect to the url
+          })
+        })
+        .catch(err => {
+          return res.send(err);
+        })
+    }
+  })
+
 
 
 }
 
 //sign in
 module.exports.signin = function(req, res, next) {
-  var userToken = req.query.token;
-//  implement sign in
- //  var email = req.body.email;
- //  var password = req.body.password;
- //  //check if email exist;
- //  User.findOne({where:{email:email}})
- //  .then(person=>{
- //    if(!person){return res.send("Email does not exist")}
- //    if(!user.passwordIsCorrect(password,person.password)){
- //      return res.send("Invalid password");
- //    }else{
- //      const payload = {
- //        email:person.email
- //      }//payload
- //
- //      const options = {
- //        expiresIn:"1h"
- //      }
- //      var token = jwt.sign(payload,process.env.JWTSECRET,options);
- //      res.append('token',token);
- //      res.send(token);
+  var userToken = req.cookies.auth;
+  //implement sign in
+  var email = req.body.email;
+  var password = req.body.password;
 
-   jwt.verify(userToken, process.env.JWTSECRET, function(err, decoded) {
-     if(err){return res.send(err)
-     }else{
-       return res.send(decoded)
-     }
+  // //check if email exist;
+  User.findOne({
+      where: {
+        email: email
+      }
+    })
+    .then(person => {
+      if (!person) {
+        return res.send("Email does not exist")
+      }
+      if (!user.passwordIsCorrect(password, person.password)) {
+        return res.send("Invalid password");
+      } else {
+        user.generateToken(req, res, next, person);
+        //redirect to a url
+      } //else
+    })//then
 
-  });
- //    }//else
- //
- // })
- console.log(req.query.token)
-}//module.exports
+
+} //module.exports
+
+
+//change password when loggedIn
+module.exports.changePasswordLogin = function(req,res,next){
+  const password = req.body.password;
+  const newPassword = req.body.newpassword;
+  const confirmPassword = req.body.confirmpassword;
+  var email = user.getUser(req,res,next).email;
+
+  User.findOne({where:{email:email}})
+  .then(function(person){
+    console.log(person.password);
+    var hash = person.password;
+    if(!user.passwordIsCorrect(password,hash)){
+      return res.send('Your password is wrong');
+    }else{
+      //continue since user password is correct
+      if(newPassword !== confirmPassword){
+        return res.send('New Passwords do not match');
+      }else{
+
+        //after password matches,replace old password with new password
+        //hash password
+         const newUserPassword = user.hashedPassword(newPassword);
+         person.password = newUserPassword;
+         person.save()
+         .then(function(){
+           return res.send("Your password change successfully");
+         })//person.save
+
+      }
+    }
+  })//then
+}
+
+//change password when loggedOut
+module.exports.sendResetCode = function(req,res,next){
+  const email = req.body.email;
+  user.emailExist(email)
+  .then(function(result){
+    if(!result){
+      return res.send("No account exist with that email");
+    }else{
+
+      //send email
+      //redirect to reset password;
+      return res.send('Code sent');
+    }
+  })
+}
