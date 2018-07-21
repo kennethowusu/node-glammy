@@ -22,7 +22,10 @@ router.put('/profile/password',accountController.changePasswordLogin);
 
 
 //send reset password
-router.post('/profile/forgotpassword',accountController.sendResetCode)
+router.post('/profile/forgotpassword',accountController.sendResetCode);
+
+//reset password
+router.post('/profile/resetpassword',accountController.resetPassword);
 
 
 

@@ -1,10 +1,13 @@
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-
+const crypto = require('crypto');
 
 //models
 var User = require('../models/userModel');
 module.exports = {
+ generateId : ()=>{
+	return	crypto.randomBytes(15).toString('hex');
+},
   hashedPassword: function(plainPassword) {
     return bcrypt.hashSync(plainPassword, 10);
   },
@@ -25,16 +28,22 @@ module.exports = {
        console.log(err)
      })
    },
-  getUser: function(req, res, next) {
+  getDecodedToken: function(req, res, next) {
     const userToken = req.cookies.auth;
 
     var decoded = jwt.decode(userToken);
     return decoded; //verify token
 
   },
+  getUser:function(req,res,next){
+    return User.find({where:{id:module.exports.getDecodedToken(req,res,next).id}});
+  },
+  getUserId:email=>{
+    return User.findOne({where:{email:email}});
+  },
   generateToken : function(req,res,next,person){
          const payload = {
-           email:person.email
+           id:person.id
          }//payload
 
          const options = {
@@ -73,5 +82,10 @@ module.exports = {
         })
     })
 
-  }//tokenIsValid
+  },//tokenIsValid
+
+  generateResetCode: function(){
+    var resetCode = Math.floor(Math.random() * 899999 + 100000);
+    return resetCode;
+  }
 }
