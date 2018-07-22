@@ -39,7 +39,7 @@ module.exports.sendMail = function(mailOptions){
 
 
 //Send Reset Code
-module.exports.sendResetCode = function(){
+module.exports.sendResetCode = function(resetCode){
   nodemailer.createTestAccount((err, account) => {
       // setup email data with unicode symbols
       const mailOptions = {
@@ -47,7 +47,7 @@ module.exports.sendResetCode = function(){
           to: 'consultkenneth@gmail.com', // list of receivers
           subject:'GlammyCare Reset Password', // Subject line
           text: 'Hello world?', // plain text body
-          html: template.resetCodeTemplate // html body
+          html: template.generateResetCodeTemplate(resetCode) // html body
       };
 
       //sendMail
@@ -55,5 +55,3 @@ module.exports.sendResetCode = function(){
   });
 
 }
-
-module.exports.sendResetCode();

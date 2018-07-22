@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 const bcrypt = require('bcrypt');
 const jwt = require("jsonwebtoken");
-
+const mail = require('../mail/mail');
 require('dotenv').config();
 //models
 var User = require('../models/userModel');
@@ -97,16 +97,14 @@ module.exports.changePasswordLogin = function(req, res, next) {
   const password = req.body.password;
   const newPassword = req.body.newpassword;
   const confirmPassword = req.body.confirmpassword;
-  var email = user.getUser(req, res, next).email;
+  const email = req.body.email;
 
-  User.findOne({
-      where: {
-        email: email
-      }
-    })
-    .then(function(person) {
-      console.log(person.password);
-      var hash = person.password;
+  user.getUserByEmail(email)
+  .then(returnedUser=>{
+  const email = returnedUser.email;
+  console.log(returnedUser.password);
+
+      var hash = returnedUser.password;
       if (!user.passwordIsCorrect(password, hash)) {
         return res.send('Your password is wrong');
       } else {
@@ -115,18 +113,17 @@ module.exports.changePasswordLogin = function(req, res, next) {
           return res.send('New Passwords do not match');
         } else {
 
-          //after password matches,replace old password with new password
-          //hash password
-          const newUserPassword = user.hashedPassword(newPassword);
-          person.password = newUserPassword;
-          person.save()
-            .then(function() {
-              return res.send("Your password change successfully");
-            }) //person.save
-
+           user.resetPassword(newPassword,returnedUser)
+           .then(savedUser=>{
+             return res.send("Your password has been reseted successfully");
+           })
         }
       }
-    }) //then
+
+  })
+
+
+
 }
 
 //change password when loggedOut
@@ -140,8 +137,8 @@ module.exports.sendResetCode = function(req, res, next) {
 
         //send email
         //redirect to reset password;
-
-        user.getUserId(email)
+        const resetcode = user.generateResetCode();
+        user.getUserByEmail(email)
           .then(function(returnedId) {
             //insert resetcode to database adding userid as a foreign key
             Resetcode.sync({
@@ -150,10 +147,10 @@ module.exports.sendResetCode = function(req, res, next) {
               .then(() => {
 
 
-
+                mail.sendResetCode(resetcode);
                 return Resetcode.create({
                   userId: returnedId.id,
-                  resetcode: user.generateResetCode()
+                  resetcode: resetcode
                 })
 
               }).catch(err => {
@@ -174,5 +171,44 @@ module.exports.sendResetCode = function(req, res, next) {
 
 //reset password
 module.exports.resetPassword = (req,res,next)=>{
-  return res.send('Password will be reseted here');
+  const resetcode = req.body.resetcode;
+  //check first if rest code is present
+  const email   = req.body.email;
+
+  //password
+  const password = req.body.password;
+
+ user.getUserByEmail(email).then(returnedUser=>{
+  const userId = returnedUser.id;
+
+  Resetcode.find({where:{userId:userId,resetcode:resetcode}})
+  .then(returnedCode=>{
+    if(!returnedCode){
+      return res.send('Reset code does not exist');
+    }else{
+
+
+      //see if password has expired;
+      if(user.passwordHasExpired(returnedCode.createdAt)){
+
+        return res.send('Reset code has expired');
+
+      }//if
+
+      user.resetPassword(password,returnedUser)
+      .then(something=>{
+        Resetcode.destroy({where:{userId:userId}})
+        .then(deleted=>{
+          res.send('password reset was successul');
+        })
+      });
+
+
+    }//else;
+
+
+  })
+
+ })
+
 }

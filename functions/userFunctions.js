@@ -35,10 +35,10 @@ module.exports = {
     return decoded; //verify token
 
   },
-  getUser:function(req,res,next){
+  getUserById:function(req,res,next){
     return User.find({where:{id:module.exports.getDecodedToken(req,res,next).id}});
   },
-  getUserId:email=>{
+  getUserByEmail:email=>{
     return User.findOne({where:{email:email}});
   },
   generateToken : function(req,res,next,person){
@@ -87,5 +87,26 @@ module.exports = {
   generateResetCode: function(){
     var resetCode = Math.floor(Math.random() * 899999 + 100000);
     return resetCode;
-  }
+  },
+  resetPassword:(newPassword,returnedUser)=>{
+    //after password matches,replace old password with new password
+    //hash password
+    const newUserPassword = module.exports.hashedPassword(newPassword);
+    returnedUser.password = newUserPassword;
+  return  returnedUser.save();
+
+},
+ passwordHasExpired:(time)=>{
+
+    const createdDate = new Date(time).getTime();
+    const now = Date.now();
+
+    const DateDifference = now - createdDate;
+
+    const tenMinute = 600000;
+    //check if date difference is greater than 10 minutes
+    const expired = (DateDifference>tenMinute)? true : false;
+    return expired;
+
+ }
 }
