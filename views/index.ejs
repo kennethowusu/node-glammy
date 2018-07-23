@@ -1,5 +1,11 @@
-extends layout
 
-block content
-  h1= title
-  p Welcome to #{title}
+<%-include('headers/header');-%>
+<%-include('partials/carousel-banner');-%>
+
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<script type="text/javascript">
+
+  $('.banner-carousel').slick({
+    dots:true
+  });
+</script>

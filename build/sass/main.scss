@@ -20,8 +20,9 @@
 
 //
 //import component styles
-  @import 'components/buttons';
-
+  @import 'components/buttons',
+          'components/header',
+          'components/banner-carousel';
 
   //import pages styles
   @import 'pages/home';
