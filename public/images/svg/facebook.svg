@@ -10,7 +10,10 @@
       }
 
       .cls-3 {
-        fill: #671414;
+        fill: #fff;
+      }
+      .cls-3:hover{
+        fill: red;
       }
     </style>
     <clipPath id="clip-path">

@@ -35,7 +35,7 @@ module.exports = function(grunt){
      // separator: ';',
    },
    dist: {
-     src: ['build/coffee/script.coffee', 'build/coffee/some.coffee', 'build/coffee/another.coffee'],
+     src: ['build/coffee/navigation.coffee', 'build/coffee/some.coffee', 'build/coffee/another.coffee'],
      dest: 'build/coffee/main.coffee',
    },
  },

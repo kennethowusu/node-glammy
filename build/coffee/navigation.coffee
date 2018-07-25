@@ -11,4 +11,3 @@ $('.js-navbar__overlay').on 'click',(e)->
  else
    $('.js-navbar__overlay').removeClass 'navbar__overlay--isvisible'
    $('body').removeClass 'hide-content'
-

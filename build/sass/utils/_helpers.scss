@@ -185,6 +185,10 @@
   text-align:left;
 }
 
+//background color
+.bg-white{
+  background-color:white;
+}
 //miscellaneous
 .control{
   width:100%;
@@ -206,4 +210,17 @@
 }
 .text-black{
   color:black;
+}
+
+.hide-content{
+  overflow:hidden;
+}
+
+//height
+.h-100{
+  height:100%;
+}
+//width
+.w-100{
+  width:100%
 }

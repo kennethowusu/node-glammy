@@ -1,0 +1,34 @@
+.item-grid{
+  display:flex;
+  flex-wrap:wrap;
+  border-top:1px solid $alto;
+
+}
+.item-grid__cont{
+  flex:1 50%;
+  max-width:50%;
+  border-right:1px solid $alto;
+  border-bottom:1px solid $alto;
+  padding:15px;
+
+}
+
+.item-grid__details{
+
+}
+
+.item-grid__img-cont{
+  max-width:115px;
+  max-height:158px;
+}
+.item-grid__title{
+  font-weight:$font-weight--medium;
+  font-size:1.0em;
+}
+.item-grid__orginal{
+  color:#5f5d5d;
+  text-decoration:line-through;
+}
+.item-grid__price{
+  font-weight:$font-weight--bold;
+}

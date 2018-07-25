@@ -22,7 +22,13 @@
 //import component styles
   @import 'components/buttons',
           'components/header',
-          'components/banner-carousel';
+          'components/banner-carousel',
+          'components/navbar',
+          'components/categories',
+          'components/item-grid';
 
   //import pages styles
   @import 'pages/home';
+
+
+  @import 'layout/footer';
