@@ -2,7 +2,9 @@
   display:flex;
   flex-wrap:wrap;
   border-top:1px solid $alto;
-
+  @media(min-width:740px){
+    border:none;
+  }
 }
 .item-grid__cont{
   flex:1 50%;
@@ -10,16 +12,17 @@
   border-right:1px solid $alto;
   border-bottom:1px solid $alto;
   padding:15px;
-
+  @media(min-width:740px){
+    border:none;
+  }
 }
 
 .item-grid__details{
-
+  margin-top:25px;
 }
 
 .item-grid__img-cont{
-  max-width:115px;
-  max-height:158px;
+
 }
 .item-grid__title{
   font-weight:$font-weight--medium;
