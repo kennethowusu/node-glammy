@@ -8,10 +8,17 @@ const user = require('../functions/userFunctions');
 //middleware
 var accountMiddleware = require('../middleware/account');
 
+
+
+//render sign up form
+router.get('/signup',accountController.getSignupForm)
 //signup
 router.post('/signup',accountController.signup);
 
 
+
+//render sign inform
+router.get('/signin',accountController.getSigninForm)
 //signin
 router.post('/signin',user.loggedIn,accountController.signin);
 

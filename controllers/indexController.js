@@ -4,5 +4,5 @@ var db = require('../classes/database');
 
 
 module.exports.getIndexPage = function(req,res,next){
-  return res.render('index');
+  return res.render('index',{returnUrl:req.originalUrl});
 }

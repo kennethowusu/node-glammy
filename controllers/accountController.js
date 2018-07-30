@@ -22,17 +22,21 @@ module.exports.getSigninForm = function(req, res, next) {
 //sign up
 module.exports.signup = function(req, res, next) {
   //implement sign up
-  var firstname = req.body.firstname;
-  var lastname = req.body.lastname;
-  var email = req.body.email;
-  var password = req.body.password;
-  var hashedPassword = user.hashedPassword(password);
+  const newUser = {
+     firstname : req.body.firstname,
+     lastname : req.body.lastname,
+     email : req.body.email,
+     password : req.body.password,
+  }
 
+  const  hashedPassword =  user.hashedPassword(newUser.password);
+  const returnUrl  = req.query.returnUrl;
   //check if user already exist
-  user.emailExist(email)
+  user.emailExist(newUser.email)
     .then(function(result) {
       if (result) {
-        return res.send("User with Email already exist");
+        const emailError  = "Email Already Exists";
+        return res.render('account/signup',{emailError:emailError,user:newUser});
       } else {
         //store user in database
         User.sync({
@@ -40,15 +44,18 @@ module.exports.signup = function(req, res, next) {
           }).then(() => {
             User.create({
               id: user.generateId(),
-              firstname: firstname,
-              lastname: lastname,
-              email: email,
+              firstname: newUser.firstname,
+              lastname: newUser.lastname,
+              email: newUser.email,
               password: hashedPassword
             }).then(person => {
-              console.log(email)
               user.generateToken(req, res, next, person);
-              res.send('registered');
-              //redirect to the url
+              if(!returnUrl){
+                 return res.redirect('/');
+               }else{
+               return res.redirect(returnUrl);
+             }
+
             })
           })
           .catch(err => {

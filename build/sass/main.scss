@@ -25,10 +25,12 @@
           'components/banner-carousel',
           'components/navbar',
           'components/categories',
-          'components/item-grid';
+          'components/item-grid',
+          'components/form-input';
 
   //import pages styles
-  @import 'pages/home';
+  @import 'pages/home',
+          'pages/register';
 
 
   @import 'layout/footer';
