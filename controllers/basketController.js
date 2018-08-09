@@ -54,4 +54,23 @@ module.exports.addToBasket = (req,res,next)=>{
 
  res.cookie('basket',basket);
  return res.send(req.cookies.basket);
+}//addToBasket
+
+//update Basket
+module.exports.updateBasket = (req,res,next)=>{
+  const basket = req.cookies.basket;
+  const id = req.body.id;
+  const quantity = req.body.quantity;
+
+  basket[id].quantity = quantity;
+  res.cookie('basket',basket,{expires:new Date(new Date().setFullYear(new Date().getFullYear() + 1))});
+  return res.send('Quantity updated');
+}
+//delete item from basket
+module.exports.deletefromBasket = (req,res,next)=>{
+  const basket = req.cookies.basket;
+  const id = req.body.id;
+  delete basket[id];
+  res.cookie('basket',basket,{expires:new Date(new Date().setFullYear(new Date().getFullYear() + 1))});
+  res.send(req.cookies.basket);
 }
