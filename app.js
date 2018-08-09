@@ -9,8 +9,11 @@ var dotenv = require('dotenv');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var account = require('./routes/account');
+var basket = require('./routes/basket');
 
 
+//middle wares
+const basketMiddleware = require('./middleware/basketMiddleware');
 var app = express();
 
 
@@ -28,9 +31,15 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+//user defined middleware
+app.use(basketMiddleware.createBasketCookie);
+
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/account',account);
+app.use('/basket',basket);
+
+
 
 
 //get returning Url after signin or signup
