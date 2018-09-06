@@ -1,0 +1,31 @@
+
+<h1>Testing basekt partials</h1>
+<!-- fancy start -->
+<section id="fancy">
+<div class="row">
+  <div class="large-12 column"><h3>With Fancy Box</h3>Left click while zooming</div>
+  <div class="large-5 column">
+
+     <%# xzoom thumbs %>
+    <div class="xzoom-container">
+      <img class="xzoom" id="xzoom-fancy" src="images/gallery/preview/01_b_car.jpg" xoriginal="images/gallery/original/01_b_car.jpg" />
+      <div class="xzoom-thumbs">
+        <a href="/images/rasta/item1.jpg"><img class="xzoom-gallery" width="80" src="/images/rasta/item1.jpg"  xpreview="/images/rasta/item1.jpg" title="The description goes here"></a>
+        <a href="/images/rasta/item2.jpg"><img class="xzoom-gallery" width="80" src="/images/rasta/item2.jpg"  xpreview="/images/rasta/item2.jpg" title="The description goes here"></a>
+        <a href="/images/rasta/item3.jpg"><img class="xzoom-gallery" width="80" src="/images/rasta/item3.jpg"  xpreview="/images/rasta/item3.jpg" title="The description goes here"></a>
+        <a href="/images/rasta/item4.jpg"><img class="xzoom-gallery" width="80" src="/images/rasta/item4.jpg"  xpreview="/images/rasta/item4.jpg" title="The description goes here"></a>
+      </div>
+    </div>
+  </div>
+  <div class="large-7 column"></div>
+</div>
+</section>
+<!-- fancy end -->
+
+
+<script type="text/javascript" src="/javascripts/xzoom_setup.js">
+
+</script>
+<%# <script type="text/javascript">
+  $(".xzoom").xzoom();
+</script> %>

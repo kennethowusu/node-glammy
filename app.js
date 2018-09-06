@@ -31,6 +31,14 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+
+//get returning Url after signin or signup
+app.use(function(req,res,next){
+  res.locals.returnUrl = req.originalUrl;
+  next();
+})
+
+
 //user defined middleware
 app.use(basketMiddleware.createBasketCookie);
 
@@ -41,12 +49,6 @@ app.use('/basket',basket);
 
 
 
-
-//get returning Url after signin or signup
-app.use(function(req,res,next){
-  res.locals.returnUrl = req.originalUrl;
-  next();
-})
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
