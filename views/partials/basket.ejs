@@ -1,31 +1,53 @@
+<div class="basket-container">
 
-<h1>Testing basekt partials</h1>
-<!-- fancy start -->
-<section id="fancy">
-<div class="row">
-  <div class="large-12 column"><h3>With Fancy Box</h3>Left click while zooming</div>
-  <div class="large-5 column">
 
-     <%# xzoom thumbs %>
-    <div class="xzoom-container">
-      <img class="xzoom" id="xzoom-fancy" src="images/gallery/preview/01_b_car.jpg" xoriginal="images/gallery/original/01_b_car.jpg" />
-      <div class="xzoom-thumbs">
-        <a href="/images/rasta/item1.jpg"><img class="xzoom-gallery" width="80" src="/images/rasta/item1.jpg"  xpreview="/images/rasta/item1.jpg" title="The description goes here"></a>
-        <a href="/images/rasta/item2.jpg"><img class="xzoom-gallery" width="80" src="/images/rasta/item2.jpg"  xpreview="/images/rasta/item2.jpg" title="The description goes here"></a>
-        <a href="/images/rasta/item3.jpg"><img class="xzoom-gallery" width="80" src="/images/rasta/item3.jpg"  xpreview="/images/rasta/item3.jpg" title="The description goes here"></a>
-        <a href="/images/rasta/item4.jpg"><img class="xzoom-gallery" width="80" src="/images/rasta/item4.jpg"  xpreview="/images/rasta/item4.jpg" title="The description goes here"></a>
-      </div>
+    <h1 class="item-view__title">Maybelline New York Fit Me Matte Poreless Foundation</h1>
+    <div class="xzoom_container">
+      <img class="xzoom" src="/images/rasta/item1.jpg" xoriginal="/images/rasta/item1.jpg" />
     </div>
-  </div>
-  <div class="large-7 column"></div>
+
+    <div class="xzoom-thumbs">
+      <a href="/images/rasta/item1.jpg">
+        <img class="xzoom-gallery" width="80" src="/images/rasta/item1.jpg"  xpreview="/images/rasta/item1.jpg">
+      </a>
+      <a href="/images/rasta/item2.jpg">
+        <img class="xzoom-gallery" width="80" src="/images/rasta/item2.jpg">
+      </a>
+      <a href="/images/rasta/item3.jpg">
+        <img class="xzoom-gallery" width="80" src="/images/rasta/item4.jpg">
+      </a>
+      <a href="/images/rasta/item4.jpg">
+        <img class="xzoom-gallery" width="80" src="/images/rasta/item4.jpg">
+      </a>
+    </div>
+
+    <section class="">
+        <p class="item-view__price bold">&#8373; 35.00</p>
+        <div class="flex justify-content-between align-items-flex-end pr-10 pl-10">
+          <div class="">
+            <span class="blk">Qty:</span>
+            <select class="blk" name="" placeholder="Qty:">
+               <option value="1">1</option>
+               <option value="2">2</option>
+               <option value="3">3</option>
+               <option value="4">4</option>
+               <option value="5">5</option>
+               <option value="6">6</option>
+               <option value="7">7</option>
+             </select>
+          </div>
+
+
+        <button type="button" name="button" class='item-view__add-btn '>
+          Add to Favourite
+          <i></i>
+        </button>
+      </div>
+    </section>
 </div>
-</section>
-<!-- fancy end -->
+<%# <script type="text/javascript" src="/javascripts/xzoom_setup.js">
 
-
-<script type="text/javascript" src="/javascripts/xzoom_setup.js">
-
-</script>
-<%# <script type="text/javascript">
-  $(".xzoom").xzoom();
 </script> %>
+<script type="text/javascript">
+  $(".xzoom, .xzoom-gallery").xzoom({tint: '#333', Xoffset: 15});
+</script>

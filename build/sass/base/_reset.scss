@@ -19,3 +19,13 @@ ul{
   margin:0;
   padding:0;
 }
+
+select{
+  padding: 10px 5px;
+  border: 0;
+  border-bottom: 3px solid #bababa;
+  width: 105px;
+  -webkit-appearance:none;
+  background:url("../images/svg/down-arrow.svg") no-repeat 100%;
+  background-size:15px;
+}

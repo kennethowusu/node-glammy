@@ -31,6 +31,9 @@
 .align-items-center{
   align-items:center;
 }
+.align-items-flex-end{
+  align-items:flex-end;
+}
 //position
 .abs{
   position:absolute;
@@ -38,7 +41,10 @@
 .rel{
   position:relative;
 }
-
+//font-weight
+.bold{
+  font-weight:bold;
+}
 //margins
 //margin-top
 .mr-5{
@@ -173,6 +179,9 @@
   padding-bottom:30px;
 }
 //display
+.blk{
+  display:block;
+}
 .in-blk{
   display:inline-block;
 }
