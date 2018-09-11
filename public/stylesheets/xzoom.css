@@ -23,10 +23,8 @@
   box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.5); }
 
 /* Thumbs */
-.xzoom-gallery, .xzoom-gallery2, .xzoom-gallery3, .xzoom-gallery4, .xzoom-gallery5 {
-  border: 1px solid #cecece;
-  margin-left: 5px;
-  margin-bottom: 10px; }
+.xzoom-gallery {
+  vertical-align: bottom; }
 
 .xzoom-source, .xzoom-hidden {
   display: block;
@@ -62,10 +60,7 @@
 
 /* Additional class that applied to thumb when it is active */
 .xactive {
-  -webkit-box-shadow: 0px 0px 3px 0px #4aa9d2;
-  -moz-box-shadow: 0px 0px 3px 0px #4aa9d2;
-  box-shadow: 0px 0px 3px 0px #4aa9d2;
-  border: 1px solid #4aaad2; }
+  border-bottom: 3px solid #E84234; }
 
 /* Caption */
 .xzoom-caption {
@@ -89,6 +84,9 @@
   display: flex;
   justify-content: center;
   align-items: baseline; }
+  @media (min-width: 1010px) {
+    .xzoom_container {
+      width: fit-content; } }
 
 .xzoom {
   width: 300px; }
@@ -98,5 +96,11 @@
 
 .xzoom-thumbs {
   display: none; }
+  @media (min-width: 1010px) {
+    .xzoom-thumbs {
+      display: block;
+      text-align: left;
+      border-bottom: 1px solid #CECECE;
+      width: max-content; } }
 
 /*# sourceMappingURL=xzoom.css.map */

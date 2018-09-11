@@ -12,24 +12,93 @@
   font-size:18px;
 }
 .item-view__add-btn{
-border:0;
-font-size: 13px;
-height: 32.4px;
-line-height: 32.4px;
-border-radius: 5px;
-letter-spacing: .5px;
-text-align: center;
-text-transform: uppercase;
-color: #fff;
-cursor: pointer;
-overflow: hidden;
-box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
-position:relative;
-background: url(../images/svg/basket-white.svg) #E84234 no-repeat 95% 40%;
-padding-right: 34px;
-background-size: 19px;
+  border:0;
+  font-size: 13px;
+  height: 32.4px;
+  line-height: 32.4px;
+  border-radius: 5px;
+  letter-spacing: .5px;
+  text-align: center;
+  text-transform: uppercase;
+  color: #fff;
+  cursor: pointer;
+  overflow: hidden;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
+  position:relative;
+  background: url(../images/svg/basket-white.svg) #E84234 no-repeat 95% 40%;
+  padding-right: 34px;
+  background-size: 19px;
 outline:0;
 &:hover{
   outline:0;
   }
 }
+.item-view_fav-btn-cont{
+    padding: 20px 15px;
+    border-top: 1px solid #cecece;
+    border-bottom: 1px solid #CECECE;
+    margin-top: 47px
+}
+.item-view_fav-btn{
+  padding-left:41px;
+  border:none;
+  background:url("../images/svg/favourite-black.svg") 10%/20px no-repeat;
+}
+
+//description styles
+.item-view-detail{
+  & p{
+    padding-left:12px;
+  }
+
+  @media(min-width:$nav-breakpoint){
+    & p{
+      padding-left:24px;
+    }
+  }
+}
+.item-view-detail__head{
+  font-size:19px;
+  padding-left:12px;
+  color:#000;
+}
+
+
+.how_to_use{
+  & ul{
+    padding-left:26px;
+
+    & li{
+      list-style-type:lower-latin;
+    }
+  }
+}
+
+.how_to_use,.ingredients{
+  & .item-view-detail__head{
+    margin-bottom:1px;
+  }
+}
+
+.item-group{
+  @media(min-width:$nav-breakpoint){
+    display:flex;
+    justify-content: space-between;
+
+  }
+}
+
+
+.item-p-s-add-btn{
+  @media(min-width:$nav-breakpoint){
+    padding: 53px 70px;
+    & .qty-add-btn{
+      justify-content: flex-start;
+    }
+
+    & .qty-select{
+      flex:1 100%;
+      margin-bottom:41px;
+    }
+    }
+  }

@@ -201,6 +201,17 @@
 .bg-white{
   background-color:white;
 }
+.bg-transparent{
+  background-color:transparent;
+}
+
+//outline
+.no-outline{
+  outline:0;
+  &:focus{
+    outline:0;
+  }
+}
 //miscellaneous
 .control{
   width:100%;

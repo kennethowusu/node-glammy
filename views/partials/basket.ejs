@@ -1,53 +1,128 @@
+
 <div class="basket-container">
 
 
     <h1 class="item-view__title">Maybelline New York Fit Me Matte Poreless Foundation</h1>
-    <div class="xzoom_container">
-      <img class="xzoom" src="/images/rasta/item1.jpg" xoriginal="/images/rasta/item1.jpg" />
-    </div>
-
-    <div class="xzoom-thumbs">
-      <a href="/images/rasta/item1.jpg">
-        <img class="xzoom-gallery" width="80" src="/images/rasta/item1.jpg"  xpreview="/images/rasta/item1.jpg">
-      </a>
-      <a href="/images/rasta/item2.jpg">
-        <img class="xzoom-gallery" width="80" src="/images/rasta/item2.jpg">
-      </a>
-      <a href="/images/rasta/item3.jpg">
-        <img class="xzoom-gallery" width="80" src="/images/rasta/item4.jpg">
-      </a>
-      <a href="/images/rasta/item4.jpg">
-        <img class="xzoom-gallery" width="80" src="/images/rasta/item4.jpg">
-      </a>
-    </div>
-
-    <section class="">
-        <p class="item-view__price bold">&#8373; 35.00</p>
-        <div class="flex justify-content-between align-items-flex-end pr-10 pl-10">
+    <div class="item-group">
           <div class="">
-            <span class="blk">Qty:</span>
-            <select class="blk" name="" placeholder="Qty:">
-               <option value="1">1</option>
-               <option value="2">2</option>
-               <option value="3">3</option>
-               <option value="4">4</option>
-               <option value="5">5</option>
-               <option value="6">6</option>
-               <option value="7">7</option>
-             </select>
+              <div class="xzoom_container">
+                <img class="xzoom" src="/images/rasta/item1.jpg" xoriginal="/images/rasta/item1.jpg" />
+              </div>
+
+              <div class="xzoom-thumbs">
+                <a href="/images/rasta/item1.jpg">
+                  <img class="xzoom-gallery" width="80" src="/images/rasta/item1.jpg"  xpreview="/images/rasta/item1.jpg">
+                </a>
+                <a href="/images/rasta/item2.jpg">
+                  <img class="xzoom-gallery" width="80" src="/images/rasta/item2.jpg">
+                </a>
+                <a href="/images/rasta/item3.jpg">
+                  <img class="xzoom-gallery" width="80" src="/images/rasta/item4.jpg">
+                </a>
+                <a href="/images/rasta/item4.jpg">
+                  <img class="xzoom-gallery" width="80" src="/images/rasta/item4.jpg">
+                </a>
+              </div>
           </div>
 
+          <section class="mr-auto item-p-s-add-btn">
+              <p class="item-view__price bold pl-15">&#8373; 35.00</p>
+              <div class="flex justify-content-between align-items-flex-end pl-15 qty-add-btn pr-15">
+                <div class="qty-select">
+                  <span class="blk">Qty:</span>
+                  <select class="blk" name="" placeholder="Qty:">
+                     <option value="1">1</option>
+                     <option value="2">2</option>
+                     <option value="3">3</option>
+                     <option value="4">4</option>
+                     <option value="5">5</option>
+                     <option value="6">6</option>
+                     <option value="7">7</option>
+                   </select>
+                </div>
 
-        <button type="button" name="button" class='item-view__add-btn '>
-          Add to Favourite
-          <i></i>
-        </button>
+
+              <button type="button" name="button" class="item-view__add-btn">Add to Favourite</button>
+            </div>
+            <div class="item-view_fav-btn-cont">
+              <button type="button" name="button" class="item-view_fav-btn pointer bg-transparent no-outline">Add to Favourite</button>
+            </div>
+          </section>
+    </div>
+
+
+    <section class="item-view-detail mt-25">
+      <div class="">
+        <p class="item-view-detail__head">About this Item</p>
+        <div class="">
+          <p>
+            Where does it come from?
+            Contrary to popular belief, Lorem Ipsum is not simply random text.
+             It has roots in a piece of classical Latin literature from 45 BC,
+             making it over 2000 years old. Richard McClintock, a Latin professor
+             at Hampden-Sydney College in Virginia, looked up one of the more obscure
+             Latin words, consectetur, from a Lorem Ipsum passage, and going through the
+             cites of the word in classical literature, discovered the undoubtable source.
+          </p>
+
+          <p>
+            Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum
+             et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC.
+              This book is a treatise on the theory of ethics, very popular during the
+               Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..",
+               comes from a line in section 1.10.32.
+          </p>
+
+        </div>
       </div>
-    </section>
-</div>
-<%# <script type="text/javascript" src="/javascripts/xzoom_setup.js">
 
-</script> %>
+      <div class="how_to_use">
+        <p class="item-view-detail__head">How to Use</p>
+        <p>
+          <ul>
+            <li>This book is a treatise on the theory of ethics, very popular du</li>
+            <li>This book is a treatise on the theory of ethics, very popular during th</li>
+            <li>The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..",
+            comes from a line in section 1.10.32.</li>
+            <li>Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum
+             et Malorum" (The Extremes of Good and Evil)</li>
+          </ul>
+
+        </p>
+      </div>
+
+
+      <div class="ingredients">
+        <p class="item-view-detail__head">Ingredients</p>
+        <p>
+          <span class="bold">Ingredients: </span>Eyeliner: Water (Aqua), Styrene/Acrylates/Ammonium Methacrylate Copolymer, Polysobate 20, Ethylhexyl Palmitate, PEG-40 Hydrogenated Castor Oil, Xanthan Gum, Benzyl Alcohol, Methylchloroisothiazolinone, Methylsothiazolinone. MAY CONTAIN: DC Black #2 (CI 77266). Mascara: Water (Aqua), Styrene/Acrylates/Ammonium Methacrylate Copolymer, Caprylic/Capric Triglyceride, Euphorbia Cerifera (Candelilla) Wax, Synthetic Beeswax, Cetearyl Alcohol, Ozokerite, Stearic Acid, Copernicia Cerifera (Carnauba) Wax, Triethanolamine, PVP, Glyceryl Stearate, PEG-100 Stearate, Triacontanyl PVP, Phenoxyethanol, Caprylyl Glycol, Acrylates Copolymer, Ethylhexylglycerin, Hydroxyethylcellulose Eyeshadow Palette: Talc, Silica, Nylon-12, Magnesium Stearate, PTFE, Triethoxycaprylylsilane, Ethylhexyl Palmitate, Octyldodecyl Stearoyl Stearate, Phenoxyethanol, Caprylyl Glycol. MAY CONTAIN: Titanium Dioxide (CI 77891), Mica (CI 77019), Iron Oxides (CI 77491, CI 77492, CI 77499), Red 40 Lake (CI 16035), Blue 1 Lake (CI 42090), Manganese Violet (CI 77742), Ultramarines (CI 77007), DC Black 2 (CI 77266
+        </p>
+      </div>
+
+    </section>
+</div
+
+</div>
+
+
 <script type="text/javascript">
-  $(".xzoom, .xzoom-gallery").xzoom({tint: '#333', Xoffset: 15});
+    (function ($) {
+    $(document).ready(function() {
+        //Integration with FancyBox 3 plugin
+        $(".xzoom, .xzoom-gallery").xzoom();
+        //Integration with fancybox version 3 plugin
+        $(".xzoom:first").bind('click', function(event) {
+            var xzoom = $(this).data('xzoom');
+            xzoom.closezoom();
+            var i, images = new Array();
+            var gallery = xzoom.gallery().ogallery;
+            var index = xzoom.gallery().index;
+            for (i in gallery) {
+                images[i] = {src: gallery[i]};
+            }
+            $.fancybox.open(images, {loop: false}, index);
+            event.preventDefault();
+        });
+    });
+    })(jQuery);
 </script>
