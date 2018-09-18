@@ -1,4 +1,4 @@
-var Sequelize = require('Sequelize');
+var Sequelize = require('sequelize');
 var db = require('../classes/database');
 var User = require('./userModel');
 
