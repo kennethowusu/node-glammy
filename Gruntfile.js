@@ -57,10 +57,10 @@ module.exports = function(grunt){
       files: ['build/sass/**/*'],
       tasks: ['sass','autoprefixer']
     },
-    coffee:{
-      files:['build/coffee/**/*'],
-      tasks:['concat','coffee']
-    }
+    // coffee:{
+    //   files:['build/coffee/**/*'],
+    //   tasks:['concat','coffee']
+    // }
 
   },
 
@@ -89,6 +89,6 @@ grunt.loadNpmTasks('grunt-contrib-concat');
 grunt.loadNpmTasks('grunt-browser-sync');
 
 
-grunt.registerTask('default', ['browserSync','watch']);
+grunt.registerTask('default', ['watch']);
 grunt.registerTask('call_sass', 'sass');
 }

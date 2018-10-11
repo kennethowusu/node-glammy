@@ -1,37 +1,123 @@
-.item-grid{
+.item-container{
   display:flex;
+  align-items:center;
   flex-wrap:wrap;
-  border-top:1px solid $alto;
-  @media(min-width:740px){
-    border:none;
+  padding:0px;
+
+  @media(min-width:556px){
+    padding:30px;
   }
+
+  @media(min-width:$nav-breakpoint){
+    margin-left:270px;
+  }
+
 }
-.item-grid__cont{
+
+.item-grid-cont{
+  display:flex;
+  justify-content: center;
+  align-items: center;
   flex:1 50%;
   max-width:50%;
-  border-right:1px solid $alto;
-  border-bottom:1px solid $alto;
-  padding:15px;
-  @media(min-width:740px){
-    border:none;
+  padding:10px;
+
+  @media(min-width:856px){
+   flex:33.3333%;
+   max-width:33.3333%;
   }
 }
+.item-grid{
+  padding-top:20px;
+  background-color:#f6f6f6;
 
-.item-grid__details{
-  margin-top:25px;
+  @media(min-width:673px){
+    max-width:253px;
+    width:253px;
+  }
+
+
+}
+.item-grid-img-cont{
+  display:block;
+  margin:auto;
+
+  height:160px;
+  max-width:160px;
+  max-height:160px;
+  margin-bottom:20px;
+
+  @media(min-width:406px){
+    height:168.5px;
+    width:168.5px;
+    max-width:168.5px;
+    max-height:168.5px;
+  }
+    @media(min-width:452px){
+      height:180px;
+      width:180px;
+      max-width:180px;
+      max-height:180px;
+    }
+
+    @media(min-width:673px){
+      max-height:253px;
+      max-width:253px;
+      width:253px;
+      height:253px;
+    }
 }
 
-.item-grid__img-cont{
+.item-grid-img{
+  display:block;
+  margin:auto;
+  max-width:100%;
+  max-height:100%;
+}
 
+.item-grid-details{
+  text-align:center;
+  padding:20px;
+  background-color:#f1f1f1;
+  height:187px;
+  max-height:187px;
+
+    @media(min-width:406px){
+      height:172px;
+      max-height:172px;
+    }
+      @media(min-width:452px){
+        height:157px;
+        max-height:157px;
+      }
+
+      @media(min-width:556px){
+        height:142px;
+        max-height:142px;
+      }
+        @media(min-width:673px){
+          max-height:169px;
+          height:169px;
+        }
 }
-.item-grid__title{
-  font-weight:$font-weight--medium;
-  font-size:1.0em;
-}
-.item-grid__orginal{
-  color:#5f5d5d;
-  text-decoration:line-through;
-}
-.item-grid__price{
-  font-weight:$font-weight--bold;
+.item-grid-title{
+  font-size:.8rem;
+  text-transform:capitalize;
+
+    @media(min-width:406px){
+      font-size:.9rem;
+    }
+
+      @media(min-width:452px){
+        font-size:.9rem;
+      }
+
+       @media(min-width:556px){
+         font-size:.9rem;
+       }
+
+       @media(min-width:673px){
+          font-size:1rem;
+          line-height: 22px;
+       }
 }
