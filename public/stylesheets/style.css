@@ -638,41 +638,54 @@ select {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  padding: 0px; }
-  @media (min-width: 556px) {
-    .item-container {
-      padding: 30px; } }
+  padding: 0px;
+  margin-top: 40px; }
   @media (min-width: 1010px) {
     .item-container {
-      margin-left: 270px; } }
+      margin-left: 280px; } }
 
 .item-list-cont {
   display: flex;
+  justify-content: center;
   align-items: center;
-  flex: 1 100%;
-  max-width: 100%;
-  margin-bottom: 20px; }
-  @media (min-width: 856px) {
+  flex: 1 50%;
+  max-width: 50%;
+  padding: 10px; }
+  @media (min-width: 600px) {
     .item-list-cont {
-      flex: 33.3333%;
-      max-width: 33.3333%; } }
+      flex: 1 100%;
+      max-width: 100%;
+      padding: 20px; } }
+  @media (min-width: 820px) {
+    .item-list-cont {
+      padding: 0;
+      margin-bottom: 30px;
+      width: 810px;
+      max-width: 810px; } }
 
 .item-list {
-  padding-right: 0;
-  background-color: #f6f6f6;
-  display: flex;
-  height: 175px;
-  max-height: 175px; }
-  @media (min-width: 673px) {
+  padding-top: 20px;
+  background-color: #f6f6f6; }
+  @media (min-width: 600px) {
     .item-list {
-      max-width: 253px;
-      width: 253px; } }
+      height: 240px;
+      width: 100%;
+      max-width: 100%;
+      max-height: 240px;
+      display: flex;
+      padding: 0; } }
+  @media (min-width: 820px) {
+    .item-list {
+      height: 245px;
+      max-height: 245px; } }
 
 .item-list-img-cont {
   display: block;
   margin: auto;
-  flex: 1 50%;
-  max-width: 50%; }
+  height: 160px;
+  max-width: 160px;
+  max-height: 160px;
+  margin-bottom: 20px; }
   @media (min-width: 406px) {
     .item-list-img-cont {
       height: 168.5px;
@@ -685,30 +698,57 @@ select {
       width: 180px;
       max-width: 180px;
       max-height: 180px; } }
-  @media (min-width: 673px) {
+  @media (min-width: 600px) {
     .item-list-img-cont {
-      max-height: 253px;
-      max-width: 253px;
-      width: 253px;
-      height: 253px; } }
+      width: 100px;
+      max-width: 100px;
+      height: inherit;
+      max-height: inherit;
+      display: flex; } }
+  @media (min-width: 730px) {
+    .item-list-img-cont {
+      display: block;
+      width: 180px;
+      height: 180px;
+      max-width: 180px;
+      max-height: 180px; } }
+  @media (min-width: 820px) {
+    .item-list-img-cont {
+      width: 245px;
+      max-width: 245px;
+      height: 245px;
+      max-height: 245px; } }
 
 .item-list-img {
   display: block;
   margin: auto;
-  width: 127px;
-  height: 127px;
-  max-width: 127px;
-  max-height: 127px; }
+  max-width: 100%;
+  max-height: 100%; }
+  @media (min-width: 600px) {
+    .item-list-img {
+      max-width: 100px;
+      max-height: 100px;
+      height: 100px;
+      width: 100px; } }
+  @media (min-width: 730px) {
+    .item-list-img {
+      width: 180px;
+      max-width: 180px;
+      height: 180px;
+      max-height: 180px; } }
+  @media (min-width: 820px) {
+    .item-list-img {
+      width: 220px;
+      max-width: 220px;
+      height: 220px;
+      max-height: 220px; } }
 
 .item-list-details {
+  text-align: center;
   padding: 20px;
   background-color: #f1f1f1;
-  flex: 1 50%;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  max-width: 50%;
-  height: 100%; }
+  height: 187px;
+  max-height: 187px; }
   @media (min-width: 406px) {
     .item-list-details {
       height: 172px;
@@ -717,14 +757,23 @@ select {
     .item-list-details {
       height: 157px;
       max-height: 157px; } }
-  @media (min-width: 556px) {
+  @media (min-width: 600px) {
     .item-list-details {
-      height: 142px;
-      max-height: 142px; } }
-  @media (min-width: 673px) {
-    .item-list-details {
-      max-height: 169px;
-      height: 169px; } }
+      height: inherit;
+      max-height: inherit;
+      text-align: left; } }
+
+.item-list-desc {
+  display: none; }
+  @media (min-width: 600px) {
+    .item-list-desc {
+      display: block; } }
+
+@media (min-width: 600px) {
+  .item-list-price {
+    padding: 0;
+    font-weight: bold;
+    font-size: 1.2rem; } }
 
 .item-list-title {
   font-size: .8rem;
@@ -735,13 +784,11 @@ select {
   @media (min-width: 452px) {
     .item-list-title {
       font-size: .9rem; } }
-  @media (min-width: 556px) {
+  @media (min-width: 600px) {
     .item-list-title {
-      font-size: .9rem; } }
-  @media (min-width: 673px) {
-    .item-list-title {
-      font-size: 1rem;
-      line-height: 22px; } }
+      font-size: 1.5rem; } }
+  .item-list-title a {
+    color: inherit; }
 
 .intro-head {
   font-size: 1.2em;
