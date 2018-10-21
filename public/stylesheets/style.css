@@ -440,7 +440,7 @@ select {
 
 .item-grid {
   padding-top: 20px;
-  background-color: #f6f6f6; }
+  background-color: #fff; }
   @media (min-width: 673px) {
     .item-grid {
       max-width: 253px;

@@ -1,10 +1,25 @@
 const Sequelize = require('sequelize');
 var db = require('../classes/database');
 
+//models
+var Item  = require('../models/item_model.js');
+var Image  = require('../models/images_model.js');
+var Variant = require('../models/variant_model.js');
+var Variant_Image = require('../models/variant_image_model.js');
+
 
 
 module.exports.getIndexPage = function(req,res,next){
-  return res.render('index',{returnUrl:req.originalUrl});
+   Item.findAll({limit:9,
+     include:{
+       model:Image
+     }
+
+   })
+   .then((items)=>{
+     return res.render('index',{returnUrl:req.originalUrl,items:items});
+   })
+
 }
 
 
