@@ -24,5 +24,15 @@ module.exports.getIndexPage = function(req,res,next){
 
 
 module.exports.getMakeupPage = function(req,res,next){
-  return res.render('makeup',{returnUrl:req.originalUrl});
+
+  Item.findAll({limit:9,
+      order: Sequelize.literal('rand()'),
+    include:{
+      model:Image
+    }
+
+  })
+  .then((items)=>{
+    return res.render('makeup',{returnUrl:req.originalUrl,items:items});
+  })
 }
